@@ -1,0 +1,32 @@
+async:
+  executor:
+    thread:
+      core_pore_size: 5
+      max_pore_size: 5
+      queue_capacity: 9999
+      name_prefix: async-service
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:h2-test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+#  redis:
+#    port: 6379
+#    host: localhost
+#    database: 0
+#    password:
+#    timeout: 3000ms
+#    lettuce:
+#      pool:
+#        max-active: 20
+#        max-wait: -1
+#        max-idle: 8
+#        min-idle: 0
