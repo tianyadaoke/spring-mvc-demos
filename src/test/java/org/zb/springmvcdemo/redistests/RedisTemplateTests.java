@@ -19,8 +19,14 @@ public class RedisTemplateTests {
     ExcelStudentRepository excelStudentRepository;
 
     @Test
-    void saveDict(){
+    void saveExcelStudent(){
         ExcelStudent excelStudent = excelStudentRepository.findById(1L).get();
         redisTemplate.opsForValue().set("excelStudent",excelStudent,1, TimeUnit.MINUTES);
+    }
+
+    @Test
+    void getExcelStudent(){
+       ExcelStudent excelStudent=(ExcelStudent)redisTemplate.opsForValue().get("excelStudent");
+        System.out.println(excelStudent);
     }
 }
